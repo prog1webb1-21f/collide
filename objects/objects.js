@@ -10,7 +10,7 @@ let player;
 function setup() {
   createCanvas(400, 400);
   for (let i = 0; i < 3; i++) {
-    smileys.push(new Smiley(i * 125 + 25, 50));
+    smileys.push(new Smiley(i * 128 + 25, 50));
   }
   console.table(smileys);
   player = new Player();
@@ -25,7 +25,6 @@ function draw() {
   for (let i = 0; i < smileys.length; i++) {
     player.scares(smileys[i]);
     if (player.eats(smileys[i])) {
-      console.log(smileys[i]);
       smileys.splice(i, 1);
       break;
     }
@@ -34,8 +33,8 @@ function draw() {
 }
 
 function preload() {
-  greenBox = loadImage("assets/box-soft-green.png");
-  pinkBox = loadImage("assets/box-pink.png");
+  smile = loadImage("assets/smile.png");
+  shocked = loadImage("assets/shocked.png");
 }
 
 class Smiley {
@@ -47,9 +46,9 @@ class Smiley {
   }
   draw() {
     if (this.isHappy) {
-      image(greenBox, this.x, this.y, this.d, this.d);
+      image(smile, this.x, this.y, this.d, this.d);
     } else {
-      image(pinkBox, this.x, this.y, this.d, this.d);
+      image(shocked, this.x, this.y, this.d, this.d);
     }
   }
 }
