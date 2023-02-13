@@ -47,6 +47,9 @@ class Smiley {
 		this.d = 20;
 		this.isHappy = true;
 	}
+	eat(){
+		
+	}
 	draw(){
 		if(this.isHappy){
 			image(emojiHappy,this.x,this.y,this.d,this.d);
@@ -78,7 +81,8 @@ class Player{
 		} else {
 			smiley.isHappy = true;
 			return false;
-		}		
+		}
+		
 	}
 	eats(smiley){
 		if(collideRectCircle(smiley.x,smiley.y,smiley.d,smiley.d,this.x,this.y,this.d)){	
